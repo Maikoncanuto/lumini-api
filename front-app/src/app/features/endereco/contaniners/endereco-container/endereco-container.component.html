@@ -1,0 +1,2 @@
+<app-endereco-request (onCancel)="onCancel()" (onSearch)="onSearch($event)"></app-endereco-request>
+<app-endereco-response *ngIf="$responseApi" [resultado]="$responseApi | async"></app-endereco-response>

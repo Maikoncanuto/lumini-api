@@ -1,0 +1,41 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-title>Pesquisar Endereço</mat-card-title>
+  <mat-card-subtitle>Formulário para pesquisa de endereço pelo CNPJ</mat-card-subtitle>
+
+  <form [formGroup]="formGroup"
+        autocomplete="off" novalidate
+        (ngSubmit)="search(formGroup?.value)">
+
+    <mat-card-content>
+      <div class="formulario">
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Digite o CNPJ</mat-label>
+          <input matInput type="text"
+                 required
+                 class="right-align"
+                 formControlName="cnpj"
+                 placeholder="80331355000100"
+                 maxlength="18"
+                 minlength="1">
+
+          <mat-error *ngIf="hasErros('cnpj', 'required')">Campo obrigatório.</mat-error>
+          <mat-error *ngIf="hasErros('cnpj', 'minlength')">Mínimo de 1 caracters.</mat-error>
+          <mat-error *ngIf="hasErros('cnpj', 'maxlength')">Máximo de 18 caracters.</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button class="btn"
+              matTooltip="Cancela o preenchimento do formulário"
+              type="button"
+              mat-flat-button (click)="cancel()">Voltar
+      </button>
+      <button class="btn"
+              matTooltip="Cadastra informações preenchidas no formulário"
+              type="submit"
+              mat-flat-button color="primary" [disabled]="formGroup?.invalid">Confirmar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

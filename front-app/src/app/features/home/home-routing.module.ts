@@ -11,10 +11,10 @@ const routes: Routes = [
     path: 'calculos',
     loadChildren: () => import('../calculo/calculo.module').then(module => module.CalculoModule)
   },
-  // {
-  //   path: 'enderecos',
-  //   loadChildren: () => import('../endereco/endereco.module').then(module => module.Endereco)
-  // }
+  {
+    path: 'enderecos',
+    loadChildren: () => import('../endereco/endereco.module').then(module => module.EnderecosModule)
+  }
 ];
 
 @NgModule({
