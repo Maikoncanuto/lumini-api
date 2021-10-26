@@ -5,10 +5,9 @@ import com.github.maikoncanuto.lumini.domain.dto.ResponseDTO;
 import com.github.maikoncanuto.lumini.domain.exception.BusinessException;
 import com.github.maikoncanuto.lumini.service.CalculoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,15 +16,15 @@ public class CalculoResource {
     private final CalculoService calculoService;
 
     @PostMapping("/calculos")
-    public ResponseEntity<ResponseDTO> calculoMedia(@RequestBody final CalculoDTO calculo) throws BusinessException {
+    @ResponseBody
+    @ResponseStatus(OK)
+    public ResponseDTO calculoMedia(@RequestBody final CalculoDTO calculo) throws BusinessException {
 
         final var calculoResultado = calculoService.calcularMedia(calculo);
 
-        final var response = ResponseDTO
+        return ResponseDTO
                 .builder()
                 .data(calculoResultado)
                 .build();
-
-        return ok(response);
     }
 }

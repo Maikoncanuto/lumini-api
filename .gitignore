@@ -1,8 +1,12 @@
 HELP.md
-!target/
+target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+calculo-api/target/
+endereco-api/target/
+
 
 ### STS ###
 .apt_generated
