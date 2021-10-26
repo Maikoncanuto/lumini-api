@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  endereco-api:
+    build: ./endereco-api/
+    ports:
+      - "8080:8080"
+  calculo-api:
+    build: ./calculo-api/
+    ports:
+      - "8081:8080"
