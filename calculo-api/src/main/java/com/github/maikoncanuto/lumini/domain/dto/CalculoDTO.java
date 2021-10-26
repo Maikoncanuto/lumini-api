@@ -9,13 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class EnderecoDTO implements BaseDTO {
+public class CalculoDTO implements BaseDTO {
 
-    private String endereco;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String unidadeFederativa;
-    private String cep;
+    private Double valorA;
+    private Double valorB;
 
 }
