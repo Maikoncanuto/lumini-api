@@ -34,7 +34,7 @@ class CalculoResourceTest {
                         .content(objectMapper.writeValueAsBytes(calculo))
                         .contentType(APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isCreated())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data").exists())
                 .andExpect(jsonPath("$.data.resultado").isNotEmpty())
                 .andExpect(jsonPath("$.erros").doesNotExist());

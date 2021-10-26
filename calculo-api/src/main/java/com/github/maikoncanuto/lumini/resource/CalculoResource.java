@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.ResponseEntity.status;
-
 @RestController
 @RequiredArgsConstructor
 public class CalculoResource {
@@ -29,6 +26,6 @@ public class CalculoResource {
                 .data(calculoResultado)
                 .build();
 
-        return status(CREATED).body(response);
+        return ok(response);
     }
 }
