@@ -1,11 +1,15 @@
 version: '3.7'
 
 services:
-  endereco-api:
+  backend-endereco-api:
     build: ./endereco-api/
     ports:
       - "8080:8080"
-  calculo-api:
+  backend-calculo-api:
     build: ./calculo-api/
     ports:
       - "8081:8080"
+  front-lumini-app: 
+    build: ./front-app/
+    ports:
+      - "8083:8080"
