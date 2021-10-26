@@ -1,0 +1,44 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-title>Cálculo de Média</mat-card-title>
+  <mat-card-subtitle>Formulário para envio das informações de cálculo</mat-card-subtitle>
+
+  <form [formGroup]="formGroup"
+        autocomplete="off" novalidate
+        (ngSubmit)="create(formGroup?.value)">
+
+    <mat-card-content>
+      <div class="formulario">
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Digite o valor de A</mat-label>
+          <input matInput type="number" class="right-align" formControlName="valorA" placeholder="0">
+          <span matPrefix>$&nbsp;</span>
+
+          <mat-error *ngIf="hasErros('valorA', 'required')">Campo obrigatório.</mat-error>
+          <mat-error *ngIf="hasErros('valorA', 'minlength')">Mínimo de 1 caracters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" floatLabel="always">
+          <mat-label>Digite o valor de B</mat-label>
+          <input matInput type="number" class="right-align" formControlName="valorB" placeholder="0">
+          <span matPrefix>$&nbsp;</span>
+
+          <mat-error *ngIf="hasErros('valorB', 'required')">Campo obrigatório.</mat-error>
+          <mat-error *ngIf="hasErros('valorB', 'minlength')">Mínimo de 1 caracters.</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button class="btn"
+              matTooltip="Cancela o preenchimento do formulário"
+              type="button"
+              mat-flat-button (click)="cancel()">Voltar
+      </button>
+      <button class="btn"
+              matTooltip="Cadastra informações preenchidas no formulário"
+              type="submit"
+              mat-flat-button color="primary" [disabled]="formGroup?.invalid">Confirmar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

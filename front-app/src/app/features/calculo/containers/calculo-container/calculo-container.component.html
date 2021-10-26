@@ -1,0 +1,2 @@
+<app-calculo-request (onCancel)="onCancel()" (onCreate)="onCreate($event)"></app-calculo-request>
+<app-calculo-response *ngIf="$resultadoCalculo" [resultado]="$resultadoCalculo | async"></app-calculo-response>
